@@ -25,4 +25,8 @@ public class Usuario extends Pessoa{
         }
     }
 
+    public List<Musica> getMusicas() {
+        return musicas;
+    }
+
 }

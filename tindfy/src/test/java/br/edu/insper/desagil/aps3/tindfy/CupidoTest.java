@@ -16,7 +16,7 @@ public class CupidoTest {
     @BeforeEach
     public void setUp() {
         c = new Cupido();
-        u1 = new Usuario("André",1,new ArrayList<>());
+        u1 = new Usuario("Ne",1,new ArrayList<>());
         u2 = new Usuario("Arthur", 2, new ArrayList<>());
     }
 
@@ -35,5 +35,12 @@ public class CupidoTest {
     public void segundoDaLike(){
         c.daLike(u2.getId(),u1.getId());
         assertFalse(c.deuMatch(u1,u2));
+    }
+
+    @Test
+    public void ambosDaLike(){
+        c.daLike(u1.getId(),u2.getId());
+        c.daLike(u2.getId(),u1.getId());
+        assertTrue(c.deuMatch(u1,u2));
     }
 }

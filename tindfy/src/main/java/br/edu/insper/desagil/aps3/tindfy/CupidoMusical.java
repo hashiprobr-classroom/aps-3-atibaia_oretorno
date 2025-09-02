@@ -1,15 +1,21 @@
 package br.edu.insper.desagil.aps3.tindfy;
 
-import java.util.List;
-import java.util.Map;
+public class CupidoMusical extends Cupido {
 
-//public class CupidoMusical extends Cupido{
-   // public CupidoMusical () {
+    public CupidoMusical() { }
 
-   // }
+    @Override
+    public boolean deuMatch(Usuario u1, Usuario u2) {
+        if (!super.deuMatch(u1, u2)) {
+            return false;
+        }
 
-   // @Override
-  //  public boolean deuMatch(Usuario u1,Usuario u2) {
+        for (Musica m : u1.getMusicas()) {
+            if (u2.jaAdicionou(m)) {
+                return true;
+            }
+        }
 
-   // }
-//}
+        return false;
+    }
+}
