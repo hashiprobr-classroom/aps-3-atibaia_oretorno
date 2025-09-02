@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Cupido {
-    private Map<Integer, List<Integer>> likes;
+    private final Map<Integer, List<Integer>> likes;
 
     public Cupido () {
         likes = new HashMap<>();
@@ -21,5 +21,12 @@ public class Cupido {
         if (!lista.contains(id2)) {
             lista.add(id2);
         }
+    }
+
+    public boolean deuMatch(Usuario u1, Usuario u2) {
+          if (likes.get(u2.getId()).contains(u1.getId()) && likes.get(u1.getId()).contains(u2.getId())) {
+              return true;
+          }
+          return false;
     }
 }
